@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreEntrega2 - Ledantes</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./scripts/script.js" defer></script>
+</head>
+
+<body>
+    <h1>PreEntrega2 - Comisión 47047 - Braian Ledantes</h1>
+    <section class="create-article">
+        <h2>Crear nuevo artículo</h2>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+        <label for="price" id="price-label">Precio</label>
+        <input type="number" name="price" id="price">
+        <label for="image">Imágen</label>
+        <input type="url" name="image" id="image">
+        <div>
+            <label for="popular">¿Es popular?</label>
+            <input type="checkbox" name="popular" id="popular">
+        </div>
+        <button type="submit" id="btnCreate">Crear</button>
+    </section>
+    <section>
+        <h2>Listado de artículos</h2>
+        <div>
+            <button type="button" id="btnDeleteAll">Eliminar Todo</button>
+            <label for="popular-list">Populares</label>
+            <input type="checkbox" name="popular-list" id="popular-check">
+        </div>
+        <ul id="articleList">
+            <li class="article">
+                <img src="https://firefoxusercontent.com/48a3d01a12257b08f085f0f6db363a0f" alt="" srcset="">
+                <h3>Morti Malvado</h3>
+                <p>Precio: $10000</p>
+                <p>Popular</p>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
