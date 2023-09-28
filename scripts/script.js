@@ -95,9 +95,9 @@ function renderArticleList(list) {
         const articleLi = `<li class="article">
         <img src="${article.image}">
         <h3>${article.name}</h3>
-        <p>Precio: 💲${article.price}</p>
+        <p>💲${article.price}</p>
         <p>${article.isPopular ? "Popular 😺" : "No Pupular 😿"}</p>
-        <p>Creado: ${article.created}</p>
+        <p>${article.created}🖊️</p>
     </li>`
         articleList.innerHTML += articleLi;
     }
