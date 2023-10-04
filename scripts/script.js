@@ -39,13 +39,7 @@ do {
         const detalle = prompt(`Ingrese el detalle de artículo ${id}`);
         const precio = parseFloat(prompt(`Ingrese el precio de artículo ${id}`));
         const esPopular = prompt(`El artículo ${id} es popular? (si/no)`) === "si";
-        const articuloNuevo = {
-            id,
-            nombre,
-            detalle,
-            precio,
-            esPopular
-        };
+        const articuloNuevo = new Articulo(id, nombre, detalle, precio, esPopular);
         // Agrega el artículo al listado
         listadoDeArticulos.push(articuloNuevo);
         // Ordena los artículos por id
