@@ -16,6 +16,7 @@ header {
     max-width: 1200px;
     padding: 2rem;
     margin: 0 auto;
+    text-align: center;
 }
 
 section {
@@ -81,6 +82,7 @@ button:active {
     border: 1px solid black;
     box-shadow: 1px 1px 5px black;
     border-radius: 15px;
+    animation: newArticle 1s ease-in;
 }
 
 .article img {
@@ -89,6 +91,15 @@ button:active {
     object-fit: cover;
     border-radius: 15px 15px 0 0;
     border-bottom: 1px solid grey;
+}
+
+@keyframes newArticle {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
 }
 
 @media screen and (max-width: 1200px) {

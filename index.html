@@ -4,16 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PreEntrega2 - Ledantes</title>
+    <title>PreEntrega3 - Ledantes</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>PreEntrega2 - Comisión 47047 - Braian Ledantes</h1>
+    <header>
+        <h1>PreEntrega3 - Comisión 47047 - Braian Ledantes</h1>
+    </header>
+    <main>
+        <section class="create-article">
+            <h2>Crear nuevo artículo</h2>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name">
+            <label for="price" id="price-label">Precio</label>
+            <input type="number" name="price" id="price">
+            <label for="image">Imágen</label>
+            <input type="url" name="image" id="image">
+            <div>
+                <label for="popular">¿Es popular?</label>
+                <input type="checkbox" name="popular" id="popular">
+            </div>
+            <button type="submit" id="btnCreate">Crear</button>
+        </section>
+        <section>
+            <h2>Listado de artículos</h2>
+            <div class="list-buttons">
+                <button type="button" id="btnDeleteAll">Eliminar Todo</button>
+                <div>
+                    <label for="popular-list">Populares</label>
+                    <input type="checkbox" name="popular-list" id="popular-check">
+                </div>
+            </div>
+            <ul id="articleList">
+            </ul>
+        </section>
+    </main>
 </body>
 
 </html>
