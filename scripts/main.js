@@ -4,6 +4,7 @@ const priceInput = document.getElementById('price');
 const imageInput = document.getElementById('image');
 const popularInput = document.getElementById('popular');
 const btnCreate = document.getElementById('btnCreate');
+const btnCreateRandom = document.getElementById('btnCreateRandom');
 const articleList = document.getElementById('articleList');
 const btnDeleteAll = document.getElementById('btnDeleteAll');
 const popularCheck = document.getElementById('popular-check');
@@ -11,6 +12,29 @@ const popularCheck = document.getElementById('popular-check');
 const articles = getArticles();
 
 renderArticleList(articles);
+
+btnCreateRandom.addEventListener('click', () => {
+    fetch('https://elbardelafai-dev.fl0.io/api/ingredients/randoms')
+        .then(res => {
+            if (!res.ok) {
+                throw Error("Error al obtener datos")
+            }
+            return res.json();
+        })
+        .then(article => {
+            nameInput.value = article.name
+            priceInput.value = article.price
+            imageInput.value = article.srcImage
+            popularInput.checked = article.isPopular
+        })
+        .catch(err => {
+            swal({
+                title: "No se ha podido generar un artículo aleratorio",
+                text: err.message,
+                icon: "error"
+            })
+        })
+});
 
 btnCreate.addEventListener('click', () => {
     const name = nameInput.value;
@@ -32,11 +56,36 @@ btnCreate.addEventListener('click', () => {
     renderNewArticle(newArticle);
 
     clearInputs();
+
+    Toastify({
+        text: `Artículo "${newArticle.name}" creado`,
+        duration: 3000,
+        gravity: "bottom",
+        position: "right",
+        destination: `#${newArticle.id}`,
+        style: {
+            border: "1px solid black",
+            boxShadow: "1px 1px 5px black",
+            borderRadius: "15px",
+            padding: "1rem",
+            color: "black",
+            background: "#ccc",
+        }
+    }).showToast();
 });
 
 btnDeleteAll.addEventListener('click', () => {
-    removeAllArticles();
-    renderArticleList(articles);
+    swal({
+        title: "¿Seguro desea eliminar todos los artículos?",
+        text: "Una vez eliminados no podran ser recuperados!",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((deleteAll) => {
+            if (deleteAll) {
+                deleteAllArticles();
+            }
+        });
 });
 
 popularCheck.addEventListener('click', () => {
@@ -49,6 +98,11 @@ popularCheck.addEventListener('click', () => {
 
     renderArticleList(listToRender);
 });
+
+function deleteAllArticles() {
+    removeAllArticles();
+    renderArticleList(articles);
+}
 
 function calculatePrice(price) {
     return Math.round(price * 100) / 100;
@@ -76,12 +130,17 @@ function renderArticleList(list) {
 }
 
 function renderNewArticle(article) {
+    const filterPopulars = popularCheck.checked;
+
+    if (filterPopulars && !article.isPopular) return;
+
     const articleLi = createArticleLiElement(article);
     articleList.prepend(articleLi);
 }
 
 function createArticleLiElement(article) {
     const articleLi = document.createElement("li");
+    articleLi.id = article.id;
     articleLi.className = "article";
 
     const img = document.createElement("img");
@@ -95,7 +154,7 @@ function createArticleLiElement(article) {
     const dateParagraph = document.createElement("p");
     dateParagraph.textContent = `${article.created}🖊️`;
 
-    articleLi.append(img, priceParagraph, popularParagraph, dateParagraph);
+    articleLi.append(img, nameTitle, priceParagraph, popularParagraph, dateParagraph);
     return articleLi;
 }
 

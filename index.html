@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PreEntrega3 - Ledantes</title>
+    <meta name="author" content="Braian Ledantes">
+    <meta name="description" content="Trabajo de entrega final para el curso de Javascript en Coderhouse">
+    <title>Entrega final - Ledantes</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./scripts/main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+
+    <script src="./scripts/main.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>PreEntrega3 - Comisión 47047 - Braian Ledantes</h1>
+        <h1>Entrega Final - Comisión 47047 - Braian Ledantes</h1>
     </header>
     <main>
         <section class="create-article">
@@ -30,6 +38,7 @@
                 <input type="checkbox" name="popular" id="popular">
             </div>
             <button type="submit" id="btnCreate">Crear</button>
+            <button type="submit" id="btnCreateRandom">Generar datos aleatorios</button>
         </section>
         <section>
             <h2>Listado de artículos</h2>

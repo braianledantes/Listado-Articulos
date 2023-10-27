@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Martian Mono', monospace;
 }
@@ -19,20 +23,35 @@ header {
     text-align: center;
 }
 
-section {
+.swal-title {
+    font-size: 24px;
+    color: black;
+}
+
+.swal-text {
+    color: black;
+    font-size: 1rem;
+}
+
+section,
+.swal-modal {
     border: 1px solid black;
     box-shadow: 1px 1px 5px black;
     border-radius: 15px;
     padding: 2rem;
 }
 
-button {
+button,
+.swal-button {
     padding: .5rem 1rem;
     border: 1px solid black;
     border-radius: 15px;
     box-shadow: 1px 1px 5px black;
     transition: box-shadow .2s ease;
     font-family: 'Martian Mono', monospace;
+    color: black;
+    font-weight: bold;
+    font-size: .9rem;
 }
 
 button:hover {
@@ -41,7 +60,7 @@ button:hover {
 }
 
 button:active {
-    background-color:  rgb(201, 201, 201);
+    background-color: rgb(201, 201, 201);
 }
 
 .list-buttons {
@@ -97,6 +116,7 @@ button:active {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 100;
     }
