@@ -14,10 +14,10 @@ const articles = getArticles();
 renderArticleList(articles);
 
 btnCreateRandom.addEventListener('click', () => {
-    fetch('https://elbardelafai-dev.fl0.io/api/ingredients/randoms')
+    fetch('https://elbardelafai-dev.fl0.io/api/ingredients/random')
         .then(res => {
             if (!res.ok) {
-                throw Error("Error al obtener datos")
+                throw Error("Error al obtener datos");
             }
             return res.json();
         })
@@ -32,7 +32,7 @@ btnCreateRandom.addEventListener('click', () => {
                 title: "No se ha podido generar un artículo aleratorio",
                 text: err.message,
                 icon: "error"
-            })
+            });
         })
 });
 
